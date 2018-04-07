@@ -20,8 +20,8 @@ export default class Article extends Component {
                 <h3>{article.title}</h3>
                 <button className="btn btn-primary" onClick={this.toggleOpen}>{isOpen ? 'Закрыть' : 'Открыть'}</button>
                 {this.getBody()}<br/>
-                {isOpen ? <button className="btn btn-secondary" onClick={this.commentToggle}>{isCommentOpen ? 'Скрыть комментарий' : 'Показать комментарий'}</button> : null}
-                {this.getComments()}
+                {isOpen ? <button className="btn btn-info" onClick={this.commentToggle}>{isCommentOpen ? 'Скрыть комментарий' : 'Показать комментарий'}</button> : null}
+                {isOpen ? this.getComments() : null}
             </div>
         );
     }
@@ -37,8 +37,9 @@ export default class Article extends Component {
         // console.log(this.props);
         const {article} = this.props;
         return (
-            <section>Комментарии:
-            <br/>{article.comments.map((comment) => <blockquote key = {comment.id}>{comment.text}<footer>{comment.user}</footer></blockquote>)}
+            <section>
+            <h4>Комментарии:</h4>
+            <br/>{article.comments.map((comment) => <blockquote className = "text-muted bg-info" key = {comment.id}>{comment.text}<footer className = "text-primary">{comment.user}</footer></blockquote>)}
             </section>
         );
     };
