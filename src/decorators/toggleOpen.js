@@ -25,5 +25,6 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
         this.setState({
             isCommentOpen: !this.state.isCommentOpen
         });
-    }
+    };
+
 }

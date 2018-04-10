@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import toggleOpen from '../decorators/toggleOpen';
+// import PropTypes from 'prop-types';
+// import toggleOpen from '../decorators/toggleOpen';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class Article extends Component {
     // https://reactjs.org/docs/typechecking-with-proptypes.html
     // https://habrahabr.ru/post/319358/
-    static propTypes = {
+    /*static propTypes = {
         article: PropTypes.shape({
            id: PropTypes.string.isRequired,
            title: PropTypes.string.isRequired,
            text: PropTypes.string
         }).isRequired
-    };
+    };*/
+
+    /*componentWillMount(){
+        //debugger;
+    }*/
 
     render() {
         // т.к. используем декоратор, то читаем isCommentOpen, isOpen, toggleOpen, commentToggle не из state а из props. state спрятан в декоратор
@@ -29,6 +33,11 @@ class Article extends Component {
             </div>
         );
     }
+
+    /*componentDidMount(){
+        //debugger;
+    }*/
+
     // при использовании данного синтаксиса this можно не бандить
     getBody = () => {
         const {article, isOpen} = this.props;
@@ -51,4 +60,5 @@ class Article extends Component {
 }
 
 // экспортить будем уже обернутый компонент. Article будет обернут во WrappedComponent
-export default toggleOpen(Article)
+// export default toggleOpen(Article)
+export default Article;
